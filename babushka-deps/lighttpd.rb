@@ -18,6 +18,8 @@ end
 
 dep 'lighttpd is started' do
   requires 'lighttpd.bin'
+  # Allows lighttpd to start even if the rpishell site isn't deployed
+  before { '/var/www/rpishell'.p.mkdir if !'/var/www/rpishell'.p.exist? }
   met? { shell "/etc/init.d/lighttpd status" }
   meet { shell "/etc/init.d/lighttpd start" }
 end
