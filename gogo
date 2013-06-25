@@ -1,0 +1,7 @@
+#!/bin/bash
+test "$USER" = "root" || { 
+  echo "Gotta run this as root!"
+  exit 1
+}
+which babushka > /dev/null || sh -c "`curl https://babushka.me/up`" </dev/null
+babushka 'current dir:all'

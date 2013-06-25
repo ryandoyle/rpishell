@@ -1,0 +1,27 @@
+server.modules = (
+	"mod_access",
+	"mod_alias",
+ 	"mod_redirect",
+        "mod_userdir",
+)
+
+server.document-root        = "/var/www/rpishell"
+server.upload-dirs          = ( "/var/cache/lighttpd/uploads" )
+server.errorlog             = "/var/log/lighttpd/error.log"
+server.pid-file             = "/var/run/lighttpd.pid"
+server.username             = "www-data"
+server.groupname            = "www-data"
+
+index-file.names            = (  "index.html", "index.htm" )
+
+url.access-deny             = ( "~", ".inc" )
+
+
+dir-listing.encoding        = "utf-8"
+server.dir-listing          = "enable"
+
+userdir.path         = "public_html"
+userdir.exclude-user = ( "root", "postmaster" )
+
+include_shell "/usr/share/lighttpd/create-mime.assign.pl"
+include_shell "/usr/share/lighttpd/include-conf-enabled.pl"
