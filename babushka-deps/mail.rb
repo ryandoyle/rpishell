@@ -50,7 +50,7 @@ dep 'sendmail is uninstalled' do
     log "stopping sendmail..."
     system '/etc/init.d/sendmail stop' if File.exist? '/etc/init.d/sendmail'
   }
-  met? { File.exist? '/etc/init.d/sendmail' }
+  met? { !File.exist? '/etc/init.d/sendmail' }
   meet {
     log "removing sendmail..."
     system "apt-get -y remove sendmail-base sendmail-bin sendmail-cf sendmail-doc" 
