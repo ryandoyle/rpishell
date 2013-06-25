@@ -11,7 +11,7 @@ dep 'rpishell assets are deployed' do
   }
   meet {  
     log "creating symlink #{File.expand_path(dependency.load_path.parent + '../www')} to #{rpishell_www_root}"
-    rpishell_www_root.p.delete if rpishell_www_root.p.symlink?
+    rpishell_www_root.p.delete if rpishell_www_root.p.exists?
     File.symlink(File.expand_path(dependency.load_path.parent + '../www'), rpishell_www_root)
   }
 end
