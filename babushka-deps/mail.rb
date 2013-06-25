@@ -53,7 +53,7 @@ dep 'sendmail is uninstalled' do
   met? { !File.exist? '/etc/init.d/sendmail' }
   meet {
     log "removing sendmail..."
-    system "apt-get -y remove sendmail-base sendmail-bin sendmail-cf sendmail-doc" 
+    system "apt-get -y purge sendmail-base sendmail-bin sendmail-cf sendmail-doc" 
   }
 end
 
