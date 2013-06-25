@@ -9,6 +9,7 @@ dep 'postfix config' do
   requires 'postfix.bin'
   requires 'postfix main.cf'
   requires 'postfix main.cf permissions'
+  requires 'postfix running'
 end
 
 dep 'postfix main.cf' do
