@@ -166,7 +166,10 @@ set postponed='+.Drafts'
 set spoolfile='~/.mail'
 ")
     }
-    after { shell "chown #{name} #{home_dir}/.muttrc" }
+    after {
+        shell "chown #{name} #{home_dir}/.muttrc"
+        shell "chmod 600 #{home_dir}/.muttrc"
+    }
   end
   
 end
