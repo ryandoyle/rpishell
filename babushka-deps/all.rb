@@ -3,4 +3,5 @@ dep 'all' do
   requires 'mail'
   requires 'lighttpd'
   requires 'rpishell www'
+  requires 'sysctl'
 end
