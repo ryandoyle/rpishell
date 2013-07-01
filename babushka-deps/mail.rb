@@ -44,6 +44,19 @@ end
 
 dep 'postfix.bin' do
   requires 'sendmail is uninstalled' 
+  requires 'exim4 is uninstalled'
+end
+
+dep 'exim4 is uninstalled' do
+  before {
+    log "stopping exim4..."
+    system '/etc/init.d/exim4 stop' if File.exist? '/etc/init.d/exim4'
+  }
+  met? { !File.exist? '/etc/init.d/exim4' }
+  meet {
+    log "removing exim4..."
+    system "apt-get -y purge exim4 exim4-base exim4-config exim4-daemon-light" 
+  }
 end
 
 dep 'sendmail is uninstalled' do
