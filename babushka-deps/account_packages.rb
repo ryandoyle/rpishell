@@ -5,6 +5,7 @@ user_packages = {
     'mutt'     => nil,
     'dnsutils' => {:provides => 'dig'},
     'mtr-tiny' => {:provides => 'mtr'},
+    'elinks'   => nil,
 }
 
 # Dynamically create the deps
