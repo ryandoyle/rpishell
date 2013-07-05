@@ -155,7 +155,7 @@ users.each do |name,attr|
       "#{home_dir}/public_html".p.mkdir
     }
     after { 
-      and_fix_ownership("#{home_dir}/public_html", name, primary_group(attr[:groups]))
+      and_fix_ownership("#{home_dir}/public_html", name, primary_group(attr[:groups]), "755")
     }
   end
   # Muttrc - create a default but don't enforce it
@@ -198,9 +198,9 @@ def primary_group(ghash)
     ghash.first
 end
 
-def and_fix_ownership(file_or_dir, user, group)
+def and_fix_ownership(file_or_dir, user, group, dir_mode="700")
   if File.directory? file_or_dir
-   shell "chmod 700 #{file_or_dir}"
+   shell "chmod #{dir_mode} #{file_or_dir}"
   else
     shell "chmod 600 #{file_or_dir}"
   end
