@@ -179,8 +179,7 @@ set spoolfile='~/mail'
 ")
     }
     after {
-        shell "chown #{name} #{home_dir}/.muttrc"
-        shell "chmod 600 #{home_dir}/.muttrc"
+      and_fix_ownership("#{home_dir}/.muttrc", name, primary_group(attr[:groups]))
     }
   end
   
