@@ -3,14 +3,14 @@ users = {
   'ryan' => {
     :enabled => true,
     :groups => ['users', 'admin'],
-    :comment => "Ryan",
+    :comment => "Ryan Doyle",
     :ssh_key => "dddadsfoobarrr"
   },
-  'babgen1' => {
+  'rpitest1' => {
     :enabled => true,
     :groups => ['users'],
-    :comment => "Babushka did this",
-    :ssh_key => "ffoobarrr"
+    :comment => "Test User 1",
+    :ssh_key => "not-a-real-key"
   },
 }
 
