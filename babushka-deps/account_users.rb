@@ -23,7 +23,7 @@ dep "account users" do
     requires "account #{name} homedir permissions"
     requires "account #{name} status"
     requires "account #{name} comment"
-    requires "account #{name} .mail directory"
+    requires "account #{name} mail directory"
     requires "account #{name} .muttrc config"
   end
 end
@@ -136,16 +136,16 @@ users.each do |name,attr|
     }
   end
   # Mail dir
-  dep "account #{name} .mail directory" do
+  dep "account #{name} mail directory" do
     requires_when_unmet "account #{name} exists"
-    met? { "#{home_dir}/.mail".p.exist? }
+    met? { "#{home_dir}/mail".p.exist? }
     meet {
-      log "creating #{home_dir}/.mail"
-      "#{home_dir}/.mail".p.mkdir
+      log "creating #{home_dir}/mail"
+      "#{home_dir}/mail".p.mkdir
     }
     after { 
-      shell "chown #{name} #{home_dir}/.mail"
-      shell "chmod 0700 #{home_dir}/.mail"
+      shell "chown #{name} #{home_dir}/mail"
+      shell "chmod 0700 #{home_dir}/mail"
     }
   end
   # Muttrc - create a default but don't enforce it
@@ -155,15 +155,15 @@ users.each do |name,attr|
     meet {
       log "creating default .muttrc config"
       "#{home_dir}/.muttrc".p.write("
-set folder = '~/.mail'
+set folder = '~/mail'
 set from = '#{name}@rpishell.org'
 set mbox_type=Maildir
-set folder='~/.mail'
+set folder='~/mail'
 set mask='!^\\.[^.]'
-set mbox='~/.mail'
+set mbox='~/mail'
 set record='+.Sent'
 set postponed='+.Drafts'
-set spoolfile='~/.mail'
+set spoolfile='~/mail'
 ")
     }
     after {
