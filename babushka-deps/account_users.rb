@@ -117,8 +117,7 @@ users.each do |name,attr|
       "#{ssh_dir}/authorized_keys".p.append("#{attr[:ssh_key]}\n") 
     }
     after {
-      shell "chmod 0600 #{ssh_dir}/authorized_keys"
-      shell "chown #{name} #{ssh_dir}/authorized_keys"
+      and_fix_ownership("#{ssh_dir}/authorized_keys", name, primary_group(attr[:groups]))
     }
     
   end
@@ -131,8 +130,7 @@ users.each do |name,attr|
       ssh_dir.p.mkdir 
     }
     after { 
-      shell "chown #{name} #{ssh_dir}"
-      shell "chmod 0700 #{ssh_dir}"
+      and_fix_ownership(ssh_dir, name, primary_group(attr[:groups]))
     }
   end
   # Mail dir
@@ -182,4 +180,17 @@ end
 def file_contents_are_the_same(string,file)
   require "digest"
   Digest::SHA1.hexdigest(string) == Digest::SHA1.hexdigest(File.read(file))
+end
+
+def primary_group(ghash)
+    ghash.first
+end
+
+def and_fix_ownership(file_or_dir, user, group)
+  if File.directory? file_or_dir
+   shell "chmod 700 #{file_or_dir}"
+  else
+    shell "chmod 600 #{file_or_dir}"
+  end
+  shell "chown #{user}:#{group} #{file_or_dir}"
 end
