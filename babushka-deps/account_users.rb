@@ -166,6 +166,7 @@ users.each do |name,attr|
     meet {
       log "creating default .muttrc config"
       "#{home_dir}/.muttrc".p.write("
+# Basic .muttrc. Edit as you wish!
 set folder = '~/mail'
 set from = '#{name}@rpishell.org'
 set mbox_type=Maildir
