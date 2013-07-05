@@ -25,6 +25,7 @@ dep "account users" do
     requires "account #{name} comment"
     requires "account #{name} mail directory"
     requires "account #{name} .muttrc config"
+    requires "account #{name} public_html"
   end
 end
 
@@ -144,6 +145,18 @@ users.each do |name,attr|
     after { 
       shell "chown #{name} #{home_dir}/mail"
       shell "chmod 0700 #{home_dir}/mail"
+    }
+  end
+  # Public html
+  dep "account #{name} public_html" do
+    requires_when_unmet "account #{name} exists"
+    met? { "#{home_dir}/public_html".p.exist? }
+    meet {
+      log "creating #{home_dir}/public_html"
+      "#{home_dir}/public_html".p.mkdir
+    }
+    after { 
+      and_fix_ownership("#{home_dir}/public_html", name, primary_group(attr[:groups]))
     }
   end
   # Muttrc - create a default but don't enforce it
