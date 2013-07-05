@@ -143,8 +143,7 @@ users.each do |name,attr|
       "#{home_dir}/mail".p.mkdir
     }
     after { 
-      shell "chown #{name} #{home_dir}/mail"
-      shell "chmod 0700 #{home_dir}/mail"
+      and_fix_ownership("#{home_dir}/mail", name, primary_group(attr[:groups]))
     }
   end
   # Public html
