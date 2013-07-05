@@ -6,6 +6,7 @@ user_packages = {
     'dnsutils' => {:provides => 'dig'},
     'mtr-tiny' => {:provides => 'mtr'},
     'elinks'   => nil,
+    'vim-nox'  => {:provides => 'vim'},
 }
 
 # Dynamically create the deps
