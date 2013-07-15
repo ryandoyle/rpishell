@@ -4,4 +4,5 @@ dep 'all' do
   requires 'lighttpd'
   requires 'rpishell www'
   requires 'sysctl'
+  requires 'iptables'
 end
