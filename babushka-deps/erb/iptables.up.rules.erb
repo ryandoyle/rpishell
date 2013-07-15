@@ -5,6 +5,7 @@
 -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 -A OUTPUT -j ACCEPT
 -A INPUT -p tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp --dport 25 -j ACCEPT
 -A INPUT -p tcp --dport 22 -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 -A INPUT -j REJECT
