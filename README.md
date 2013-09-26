@@ -38,7 +38,7 @@ And that's fair enough. What I suggest (and what I have done) is to create a thr
 # I want something (installed|configured|improved) #
 *Great!*  You'll need to know a _small_ amount of Ruby and a _tiny_ amount of Babushka. If you know nothing about either, I'm sure you can still figure it out. Also, keep in mind that this runs Raspbian (basically Debian). That might be important for package names or configuration file locations.
 
-As en example, lets go over installing elinks:
+As an example, lets go over installing elinks:
 
 Open up `babushka-deps/user_packages.rb`. Packages that you want installed should be defined here.
 
