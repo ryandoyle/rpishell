@@ -1,6 +1,6 @@
 Free shell accounts hosted on an RPi @ [rpishell.org](http://rpishell.org)
 ---
-# What's a shell account #
+# What's a shell account? #
 It's a user account on a remote server. They usually have:
 - ssh access
 - email
@@ -20,16 +20,12 @@ Good question - using `git` of course! Your account is part of the configuration
 - Fork this repo!
 - Edit `babushka-deps/account_users.rb` and append your account details to the `users` hash. EG:
 ~~~
-         :comment => "First Last",
-         :ssh_key => "ssh-rsa AAAAAbasdjhBJhdbjhabsjdhbHSDBAJSDBHffoobarrr"
-       },
     +  'accountyname' => {
     +    :enabled => true,
     +    :groups => ['users'],
     +    :comment => "Mr Shell Account",
     +    :ssh_key => "ssh-rsa AAAAAbasdjhBJhdbjhabsjdhbHSDBAJ..."
     +  },
-     }
 ~~~
 - Commit and issue a pull request
 - If I have capacity (I have no idea how many users the RPi can support), I'll merge it.
