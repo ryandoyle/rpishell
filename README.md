@@ -19,14 +19,12 @@ Good question - using `git` of course! Your account is part of the configuration
 ### The 4 easy steps ###
 - Fork this repo!
 - Edit `babushka-deps/account_users.rb` and append your account details to the `users` hash. EG:
-~~~
     +  'accountyname' => {
     +    :enabled => true,
     +    :groups => ['users'],
     +    :comment => "Mr Shell Account",
     +    :ssh_key => "ssh-rsa AAAAAbasdjhBJhdbjhabsjdhbHSDBAJ..."
     +  },
-~~~
 - Commit and issue a pull request
 - If I have capacity (I have no idea how many users the RPi can support), I'll merge it.
 
