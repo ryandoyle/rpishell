@@ -8,6 +8,8 @@ user_packages = {
     'elinks'   => nil,
     'vim-nox'  => {:provides => 'vim'},
     'htop'     => nil,
+    'tmux'     => nil,
+    'screen'   => nil,
 }
 
 # Dynamically create the deps
