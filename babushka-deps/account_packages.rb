@@ -7,6 +7,7 @@ user_packages = {
     'mtr-tiny' => {:provides => 'mtr'},
     'elinks'   => nil,
     'vim-nox'  => {:provides => 'vim'},
+    'htop'     => nil,
 }
 
 # Dynamically create the deps
