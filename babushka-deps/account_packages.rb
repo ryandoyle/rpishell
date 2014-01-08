@@ -10,6 +10,7 @@ user_packages = {
     'htop'     => nil,
     'tmux'     => nil,
     'screen'   => nil,
+    'mosh'     => nil,
 }
 
 # Dynamically create the deps

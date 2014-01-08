@@ -7,6 +7,7 @@
 -A INPUT -p tcp --dport 80 -j ACCEPT
 -A INPUT -p tcp --dport 25 -j ACCEPT
 -A INPUT -p tcp --dport 22 -j ACCEPT
+-A INPUT -p udp -m multiport --dports 60000:60100 -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 -A INPUT -j REJECT
 -A FORWARD -j REJECT
