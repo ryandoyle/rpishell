@@ -1,4 +1,7 @@
 *filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
 -A INPUT -i lo -j ACCEPT
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
