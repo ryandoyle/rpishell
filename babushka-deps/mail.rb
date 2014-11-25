@@ -73,7 +73,7 @@ end
 
 dep 'etc mailname is my hostname' do
   mailname = '/etc/mailname'
-  met? { !mailname.p.grep(/#{@my_hostname}/).empty? }
+  met? { mailname.p.grep(/#{@my_hostname}/) }
   meet { mailname.p.write("#{@my_hostname}\n") }
 end
 
