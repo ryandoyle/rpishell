@@ -6,7 +6,7 @@ user_packages = {
     'dnsutils' => {:provides => 'dig'},
     'mtr-tiny' => {:provides => 'mtr'},
     'elinks'   => nil,
-    'vim-nox'  => {:provides => 'vim'},
+    'vim-nox'  => {:provides => 'vim.nox'},
     'htop'     => nil,
     'tmux'     => nil,
     'screen'   => nil,
