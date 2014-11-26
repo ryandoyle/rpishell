@@ -11,6 +11,7 @@ user_packages = {
     'tmux'     => nil,
     'screen'   => nil,
     'mosh'     => nil,
+    'exuberant-ctags'  => {:provides => 'ctags'},
 }
 
 # Dynamically create the deps
