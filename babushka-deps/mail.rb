@@ -1,4 +1,5 @@
 postfix_maincf = '/etc/postfix/main.cf'
+my_hostname = 'rpishell.org'
 
 dep 'mail' do
   requires 'postfix config'
@@ -13,7 +14,7 @@ dep 'postfix config' do
 end
 
 dep 'postfix main.cf' do
-  @my_hostname = 'rpishell.org'
+  @my_hostname = my_hostname
   requires 'postfix.bin'
   met? { Babushka::Renderable.new(postfix_maincf).from?(dependency.load_path.parent / "erb/main.cf.erb") }
   meet { render_erb "erb/main.cf.erb", :to => postfix_maincf }
@@ -73,8 +74,8 @@ end
 
 dep 'etc mailname is my hostname' do
   mailname = '/etc/mailname'
-  met? { mailname.p.grep(/#{@my_hostname}/) }
-  meet { mailname.p.write("#{@my_hostname}\n") }
+  met? { mailname.p.grep(/#{my_hostname}/) }
+  meet { mailname.p.write("#{my_hostname}\n") }
 end
 
 def restart_postfix
